@@ -7,10 +7,21 @@ const vehicleSchema = new mongoose.Schema({
   year: { type: Number, required: true },
   price: { type: Number, required: true },
   seating: { type: Number, required: true },
-  Images: { type: Array, required: true },
+  image: { type: String, required: true },
   fuelType: { type: String },
-  Exteriorcolor: { type: Array, required: true },
-  Interiorcolor: { type: Array, required: true },
+  Exteriorcolor: [
+    {
+      color: String,
+      price: Number
+    }
+  ],
+  Interiorcolor: [
+    {
+      color: String,
+      price: Number
+    }
+  ],
+  shortdescription: {type: String,required:true},
   description: { type: String, required: true },
   dimensions: {
     length: Number,
@@ -21,7 +32,8 @@ const vehicleSchema = new mongoose.Schema({
   wheelOptions: [
     {
       style: String,
-      image: String
+      image: String,
+      price: Number
     }
   ],
   Seattype: [
@@ -44,7 +56,8 @@ const vehicleSchema = new mongoose.Schema({
       rating: Number,
       comment: String
     }
-  ]
+  ],
+  category: {type:String, required: true}
 })
 
 const vehicleModel = mongoose.model('vehicle', vehicleSchema)

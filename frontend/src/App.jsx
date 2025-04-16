@@ -7,10 +7,16 @@ import Configure from './pages/Configure'
 import User from './pages/User'
 import Garage from './pages/Garage'
 import Support from './pages/Support'
+import Footer from './components/Footer'
+import Luxury from './pages/Luxury'
+import Performance from './pages/Performance'
+import Suv from './pages/Suv'
+import Electric from './pages/Electric'
+import SingleVehicle from './pages/SingleVehicle'
 
 const App = () => {
   return (
-    <div>
+    <div className='bg-[#fefdfb]'>
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -19,7 +25,13 @@ const App = () => {
         <Route path='/configure' element={<Configure />} />
         <Route path='/garage' element={<Garage />} />
         <Route path='/support' element={<Support />} />
+        <Route path='/luxury' element={<Luxury />}></Route>
+        <Route path='/performance' element={<Performance/>}></Route>
+        <Route path='/suv' element={<Suv/>}></Route>
+        <Route path='/electric' element={<Electric/>}></Route>
+        <Route path="/vehicle/:id" element={<SingleVehicle />} />
       </Routes>
+      <Footer/>
     </div>
   )
 }
