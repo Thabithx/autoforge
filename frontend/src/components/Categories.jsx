@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Categories = () => {
   return (
-    <div className='flex bg-[#fefdfb] font-semibold py-5 pb-10'>
+    <div className='flex bg-[#fefdfb] font-semibold pb-10'>
       <Link to="/luxury"><div><img src={assets.rollsroyceghost} alt="" /><p className='text-center'> LUXURY</p></div></Link>
       <Link to="/performance"><div><img src={assets.porsche911} alt="" /><p className='text-center'>PERFORMANCE</p></div></Link>
       <Link to="/electric"><div><img  src={assets.teslaroadster} alt="" /><p className='text-center'>ELECTRIC</p></div></Link>

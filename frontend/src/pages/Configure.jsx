@@ -2,7 +2,7 @@ import React from 'react'
 
 const Configure = () => {
   return (
-    <div>Configure</div>
+    <div >Configure</div>
   )
 }
 

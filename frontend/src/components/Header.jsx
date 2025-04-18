@@ -3,6 +3,7 @@ import assets from '../assets/asets'
 import { ShopContext } from '../context/ShopContext'
 import { useContext, useEffect, useState, useRef } from 'react'
 import Categories from './Categories'
+import Vehicle from './Vehicle'
 
 const Header = () => {
   const {
@@ -10,16 +11,16 @@ const Header = () => {
     setShowSearch,
     search,
     setSearch,
-    productdata
+    productdata,
+    isloading,
+
   } = useContext(ShopContext)
 
   const [filteredProducts, setFilteredProducts] = useState([])
   const [showCategories, setShowCategories] = useState(false)
   const categoryRef = useRef(null)
   const searchRef = useRef(null)
-  const searchDropdownRef = useRef(null) // Added ref for dropdown
-
-  console.log(filteredProducts);
+  const searchDropdownRef = useRef(null)
 
   useEffect(() => {
     if (showSearch) {
@@ -112,7 +113,7 @@ const Header = () => {
                 {showCategories && (
                   <div className="fixed top-14 left-0 w-screen  bg-[#fefdfb] z-30 shadow-lg rounded-b-2xl overflow-hidden animate-slideDown">
                     <div className="flex justify-center gap-8 w-full lg:px-40">
-                      <div className="w-full cursor-pointer hover:text-black">
+                      <div className="w-full cursor-pointer hover:text-black" onClick={() => setShowCategories(!showCategories)}>
                         <Categories />
                       </div>
                     </div>
@@ -137,27 +138,44 @@ const Header = () => {
                 </button>
                 <div
                   ref={searchDropdownRef}
-                  className={`fixed top-14 left-0 w-screen bg-[#fbfbfbe9] z-30 overflow-hidden shadow-lg rounded-b-2xl animate-slideDown`}
+                  className={`fixed top-14 left-0 w-screen bg-[#fefdfb] z-30 overflow-hidden shadow-lg rounded-b-sm animate-slideDown`}
                 >
-                  <div className="flex justify-center gap-8 w-full py-5">
-                    <div className="w-full cursor-pointer hover:text-black">
-                      <Categories />
+                  <div className="w-full cursor-pointer hover:text-black">
+                    <div className="max-h-[100vh] overflow-y-auto pb-10 px-40">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        {isloading ? (
+                          <p>Loading vehicles...</p>
+                        ) : (
+                          filteredProducts.map((vehicle, index) => (
+                            <Vehicle 
+                              key={index}
+                              id={vehicle._id}
+                              image={assets[vehicle.image]}
+                              price={vehicle.price}
+                              name={vehicle.name}
+                              model={vehicle.model}
+                              description={vehicle.description}
+                            /> 
+                          ))
+                        )}
+                      </div>
                     </div>
                   </div>
+
                 </div>
               </div>
             ) : (
               <div
                 ref={searchDropdownRef}
-                className="fixed top-14 left-0 w-screen bg-[#f9f9f9] z-30 overflow-hidden shadow-lg rounded-b-2xl animate-slideDown"
+                className="fixed top-14 left-0 w-screen bg-[#fefdfb] z-30 overflow-hidden shadow-lg rounded-b-sm animate-slideDown"
               >
                 <div className="flex justify-center gap-8 w-full py-5 text-center pl-14">
                   <div className="text-gray-700 text-base justify-start items-center w-2/5">
                     <p className="mb-2 text-sm text-gray-500 text-start">Quick Links</p>
                     <ul className='text-start font-semibold'>
-                      <li className="hover:underline cursor-pointer">BMW M4</li>
-                      <li className="hover:underline cursor-pointer">Toyota Supra</li>
-                      <li className="hover:underline cursor-pointer">Tesla Model Y</li>
+                      <li className="hover:underline cursor-pointer">BMW M5</li>
+                      <li className="hover:underline cursor-pointer">Porsche 911</li>
+                      <li className="hover:underline cursor-pointer">Tesla Roadster</li>
                     </ul>
                   </div>
                 </div>

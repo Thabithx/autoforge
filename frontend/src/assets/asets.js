@@ -14,10 +14,11 @@ import fordeverest from './fordeverest.png'
 import cybertruck from './cybertruck.png'
 import bugattitourbilion from "./bugattitourbilion.png"
 import teslaroadster from "./teslaroadster.png"
+import banner from "./banner.png"
 
 
 const assets = {
-   search,profile,garage,logo,cars,electric,porsche911,rollsroyceghost,trucks,bmwM5,cadillac75,gwagon,fordeverest,cybertruck,bugattitourbilion,teslaroadster
+   search,profile,garage,logo,cars,electric,porsche911,rollsroyceghost,trucks,bmwM5,cadillac75,gwagon,fordeverest,cybertruck,bugattitourbilion,teslaroadster,banner
 }
 
 export default assets

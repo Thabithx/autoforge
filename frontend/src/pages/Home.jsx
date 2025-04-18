@@ -19,7 +19,7 @@ const Home = () => {
   
 
   return (
-    <div>
+    <div >
       <div className="relative w-full h-[100vh] ">
         <img
           src={assets.cars}
@@ -40,8 +40,19 @@ const Home = () => {
       <div className='px-8 sm:px-8 md:px-16 lg:px-32 '>
         <Title text1={"VEHICLE"} text2={"CATEGORIES."}/>
         <Categories/>
+
+        <div className='flex gap-10 items-center py-20'>
+          <div className='text-lg text-[#434242]'>
+            <p className='text-4xl font-bold text-[#1d1d1f] pb-5'>Custom-Build Your Dream Ride</p>
+            <p>Experience the freedom to design every part of your vehicle — from wheels to interiors, spoilers to paint jobs.</p>
+            <p className='font-semibold pt-4 text-lg text-black'>100% Customizable Parts <br/>Real-Time 3D Visualization <br/> Expert Support & Fast Delivery</p>
+            <button className='py-2 px-7 text-base rounded-full bg-[#252526] text-white mt-6'>Build</button>
+          </div>
+          <img className='w-1/2' src={assets.banner} alt="" />
+        </div>
+
         <Title text1={"EXPLORE"} text2={"VEHICLES."}/>
-         <div className="py-2 sm:py-4 md:py-6 lg:py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+         <div className="pb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {isloading ? (
                <p>Loading vehicles...</p>
             ) : (

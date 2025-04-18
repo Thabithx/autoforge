@@ -2,7 +2,7 @@ import React from 'react'
 
 const Suv = () => {
   return (
-    <div>Suv</div>
+    <div >Suv</div>
   )
 }
 
