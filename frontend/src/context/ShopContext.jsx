@@ -14,7 +14,7 @@ const ShopContextProvider = (props) =>{
       if (productdata.length > 0) return; 
       try {
          setIsLoading(true);
-         const response = await axios.get('http://localhost:5000/api/vehicle/vehicles');
+         const response = await axios.get('http://localhost:4000/api/vehicle/vehicles');
          setProductdata(response.data);
       } catch (error) {
          console.error("Error fetching product data:", error);
